@@ -1,0 +1,38 @@
+TASK - 12 : Student Registration and Login System with Token Expiry Notification
+
+This project is a Node.js application using MySQL for a student registration and login system. 
+It has two main endpoints:
+
+Student Registration: Students can register by providing their roll number, name, email, and password.
+The password is hashed using bcrypt for security.
+A confirmation email is sent upon successful registration.
+
+Student Login: Students log in using their roll number, email, and password. Upon successful login, a JSON Web Token (JWT) is issued with a 3-minute expiry. 
+A login confirmation email is sent.
+When the token expires, an automated email notifies the user, and a message appears in the console. 
+The project uses a MySQL connection pool, Nodemailer for email functionality, and node-schedule for scheduling the token expiry notifications.
+Configuration values are stored in a .env file for security.
+
+Registration Endpoint : http://localhost:7000/api/auth/register
+method : POST 
+
+JSON FORMAT : 
+{
+  "roll_number": "2232j31",
+  "student_name": "sanjay r",
+  "student_email": "2232j31@kgcas.com",
+  "password": "12345678"
+}
+
+Login Endpoint : http://localhost:7000/api/auth/login
+method : POST
+
+JSON FORMAT :
+
+{
+  "roll_number": "2232j31",
+  "student_email": "2232j31@kgcas.com",
+  "password": "12345678"
+}
+
+********************************************************************************************************
